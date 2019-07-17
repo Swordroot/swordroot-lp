@@ -19,13 +19,13 @@
             <p>
               <span class="subtitle is-3">Age</span>
             </p>
-            <p>25</p>
+            <p>{{ age }}</p>
           </div>
           <div class="tile is-child is-4 column">
             <p>
               <span class="subtitle is-3">Working for...</span>
             </p>
-            <p>Aidemy.inc</p>
+            <p><a href="https://aidemy.net/">Aidemy.inc</a></p>
           </div>
         </div>
         <div class="tile is-parent">
@@ -33,19 +33,19 @@
             <p>
               <span class="subtitle is-3">Twitter</span>
             </p>
-            <p>@Swordroot_M</p>
+            <p><a href="https://twitter.com/Swordroot_M">@Swordroot_M</a></p>
           </div>
           <div class="tile is-child is-4 column">
             <p>
               <span class="subtitle is-3">Qiita</span>
             </p>
-            <p>@Swordroot_M</p>
+            <p><a href="https://qiita.com/Swordroot_M">@Swordroot_M</a></p>
           </div>
           <div class="tile is-child is-4 column">
             <p>
               <span class="subtitle is-3">Github</span>
             </p>
-            <p>@swordroot</p>
+            <p><a href="https://github.com/Swordroot">@Swordroot</a></p>
           </div>
         </div>
         <div class="tile is-parent">
@@ -61,8 +61,21 @@
   </section>
 </template>
 <script lang="ts">
-import Vue from 'vue'
+import Vue from "vue";
 export default Vue.extend({
-  
-})
+  computed: {
+    age: () => {
+      const _age = new Date().getFullYear() - 1993;
+      const _month = new Date().getMonth() + 1;
+      const _date = new Date().getDate();
+      if (_month > 9) {
+        return _age;
+      } else if (_month < 9) {
+        return _age - 1;
+      } else {
+        return _date < 7 ? _age - 1 : _age;
+      }
+    }
+  }
+});
 </script>
