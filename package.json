@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "nuxt",
     "prd": "nuxt build && nuxt start",
+    "build": "nuxt build",
     "deploy:hosting": "firebase deploy --only hosting --project swordroot-lp",
     "lint": "eslint --ext .ts,.js,.vue --ignore-path .gitignore .",
     "test": "echo \"Error: no test specified\" && exit 1"
