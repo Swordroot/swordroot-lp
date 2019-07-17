@@ -10,15 +10,19 @@ const config: NuxtConfiguration = {
       {
         charset: 'utf-8'
       },
-      { name: "viewport", content: "width=device-width, initial-scale=1.0" }
+      { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }
     ],
     link: [
       {
-        rel: "stylesheet",
+        rel: 'stylesheet',
         href:
-          "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css"
+          'https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css'
       }
     ]
+  },
+
+  server: {
+    port: 3001
   }
 }
 
