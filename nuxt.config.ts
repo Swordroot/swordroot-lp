@@ -23,7 +23,12 @@ const config: NuxtConfiguration = {
 
   server: {
     port: 3001
-  }
+  },
+
+  modules: [
+    '@nuxtjs/axios'
+  ],
+  axios: {}
 }
 
 export default config

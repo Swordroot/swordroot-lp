@@ -7,12 +7,14 @@
     "prd": "nuxt build && nuxt start",
     "build": "nuxt build",
     "deploy:hosting": "firebase deploy --only hosting --project swordroot-lp",
+    "deploy:functions": "cd functions && npm run build && firebase deploy --only functions --project swordroot-lp",
     "lint": "eslint --ext .ts,.js,.vue --ignore-path .gitignore .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Swordroot",
   "license": "ISC",
   "dependencies": {
+    "@nuxtjs/axios": "^5.5.4",
     "nuxt": "^2.8.1",
     "ts-node": "^8.3.0",
     "vue-property-decorator": "^8.2.1"
