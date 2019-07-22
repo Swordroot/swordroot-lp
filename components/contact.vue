@@ -52,7 +52,7 @@
 
               <div class="field is-grouped">
                 <div class="control">
-                  <button class="button is-link">Submit</button>
+                  <button class="button is-link" :disabled="isAbleToSendContact">Submit</button>
                   <p
                     class="help is-danger"
                     :class="somethingWentWrong"
@@ -114,6 +114,10 @@ export default Vue.extend({
     },
     isModalShowing: function() {
       return this.$data.showingModal ? "is-active" : "";
+    },
+    isAbleToSendContact: function() {
+      const flag = !this.$data.senderName || !this.$data.email || !this.$data.message
+      return flag;
     }
   },
   methods: {
