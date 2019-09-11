@@ -77,7 +77,7 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      - run: |
+      - command: |
         npm run deploy:hosting
         npm run deploy:functions
   
