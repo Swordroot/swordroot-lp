@@ -87,8 +87,12 @@ workflows:
   build-test-deploy:
     jobs:
       - build
-      - test
+      - test:
+        requries: 
+          - build
       - deploy:
+        requries: 
+          - test
         filters:
           branches:
             only: master
