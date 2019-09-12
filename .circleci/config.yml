@@ -44,17 +44,13 @@ jobs:
 
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            - v1-dependencies-
-      - run: npm install
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+      - run: 
       - run: 
           command: |
+            npm install
+            cd functions
+            npm install
+            cd ../
             npm run build
             npm run deploy:hosting -- --token $FIREBASE_TOKEN
             npm run deploy:functions -- --token $FIREBASE_TOKEN
