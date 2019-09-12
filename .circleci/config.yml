@@ -29,7 +29,6 @@ jobs:
     steps:
       - checkout
       - run: 
-      - run: 
           command: |
             npm install
             cd functions
