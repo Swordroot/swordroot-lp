@@ -55,6 +55,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
       - run: 
           command: |
+            npm run build
             npm run deploy:hosting -- --token $FIREBASE_TOKEN
             npm run deploy:functions -- --token $FIREBASE_TOKEN
   
