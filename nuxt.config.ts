@@ -1,11 +1,11 @@
-import NuxtConfiguration from '@nuxt/config'
+import NuxtConfiguration from '@nuxt/config';
 
 const config: NuxtConfiguration = {
   // Type or Press `Ctrl + Space` for autocompletion
-  mode: 'spa',
+  mode: 'universal',
 
   head: {
-    titleTemplate: 'Swordroot\'s portfolio site',
+    titleTemplate: "Swordroot's portfolio site",
     meta: [
       {
         charset: 'utf-8'
@@ -22,13 +22,17 @@ const config: NuxtConfiguration = {
   },
 
   server: {
-    port: 3001
+    port: 2000
   },
 
-  modules: [
-    '@nuxtjs/axios'
+  modules: ['@nuxtjs/axios'],
+  plugins: [
+    {
+      src: '~/plugins/ogpGetter.ts',
+      mode: 'server'
+    }
   ],
   axios: {}
-}
+};
 
-export default config
+export default config;
