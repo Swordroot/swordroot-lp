@@ -4,11 +4,14 @@
   "private": true,
   "description": "Swordroot's LP project",
   "scripts": {
-    "dev": "nuxt",
-    "prd": "nuxt build && nuxt start",
-    "build": "nuxt build",
-    "deploy:hosting": "firebase deploy --only hosting --project swordroot-lp",
-    "deploy:functions": "cd functions && npm run build && firebase deploy --only functions --project swordroot-lp",
+    "dev:nuxt": "nuxt",
+    "prd:nuxt": "npm run build:nuxt && firebase serve --only hosting,functions",
+    "build:nuxt": "nuxt build && cp -rf ./functions/dist/dist/client ./public && mv ./public/client ./public/_nuxt",
+    "build:nuxt:ci": "nuxt build && mkdir public && mkdir ./public/_nuxt && cp -rf ./functions/dist/dist/client ./public/_nuxt",
+    "build:functions": "cd functions && npm run build && cd ../",
+    "deploy:hosting": "npm run build:nuxt && firebase deploy --only hosting --project swordroot-lp",
+    "deploy:functions": "npm run build:functions && firebase deploy --only functions --project swordroot-lp",
+    "deploy:all": "npm run deploy:functions && npm run deploy:hosting",
     "lint": "eslint --ext .ts,.js,.vue --ignore-path .gitignore .",
     "test": "jest"
   },
@@ -16,14 +19,18 @@
   "license": "ISC",
   "dependencies": {
     "@nuxtjs/axios": "^5.5.4",
+    "axios": "^0.19.0",
+    "node-html-parser": "^1.1.16",
     "nuxt": "^2.8.1",
     "ts-node": "^8.3.0",
+    "uuid": "^3.3.3",
     "vue-property-decorator": "^8.2.1"
   },
   "devDependencies": {
     "@nuxt/typescript": "^2.8.1",
     "@nuxtjs/eslint-config": "^1.0.1",
     "@types/jest": "^24.0.18",
+    "@types/uuid": "^3.4.6",
     "@typescript-eslint/eslint-plugin": "^1.12.0",
     "@typescript-eslint/parser": "^1.12.0",
     "eslint": "^5.16.0",
