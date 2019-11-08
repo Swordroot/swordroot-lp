@@ -16,13 +16,14 @@ export const contact = functions.https.onRequest(async (req, res) => {
   }
   await axios
     .post(
-      'https://hooks.slack.com/services/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',
+      'https://hooks.slack.com/services/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',
       req.body
     )
     .then(() => {
       res.status(200).send('OK');
     })
     .catch(reason => {
+      console.log(reason);
       res.status(500).send(reason);
     });
 });

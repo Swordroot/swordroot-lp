@@ -10,9 +10,9 @@
     "build:nuxt:ci": "nuxt build && mkdir public && mkdir ./public/_nuxt && cp -rf ./functions/dist/dist/client ./public/_nuxt",
     "build:functions": "cd functions && npm run build && cd ../",
     "deploy:hosting": "npm run build:nuxt && firebase deploy --only hosting --project swordroot-lp",
-    "deploy:hosting:ci": "npm run build:nuxt:ci && firebase deploy --only hosting --project swordroot-lp",
+    "deploy:hosting:ci": "npm run build:nuxt:ci && ls ./public && firebase deploy --only hosting --project swordroot-lp",
     "deploy:functions": "npm run build:functions && firebase deploy --only functions --project swordroot-lp",
-    "deploy:all": "npm run deploy:functions && npm run deploy:hosting",
+    "deploy:all": "npm run deploy:hosting && npm run deploy:functions",
     "lint": "eslint --ext .ts,.js,.vue --ignore-path .gitignore .",
     "test": "jest"
   },
