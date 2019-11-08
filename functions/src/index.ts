@@ -16,7 +16,7 @@ export const contact = functions.https.onRequest(async (req, res) => {
   }
   await axios
     .post(
-      'https://hooks.slack.com/services/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',
+      'https://hooks.slack.com/services/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',
       req.body
     )
     .then(() => {
