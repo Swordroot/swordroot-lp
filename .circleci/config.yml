@@ -9,7 +9,7 @@ jobs:
     steps:
       - checkout
       - run: npm install
-      - run: cd functions && npm insstall && cd ../
+      - run: cd functions && npm install && cd ../
       - run: npm run build:nuxt
       - run: npm run build:functions
   test:
