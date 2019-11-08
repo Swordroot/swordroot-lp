@@ -1,6 +1,7 @@
 import * as functions from 'firebase-functions';
 import axios from 'axios';
 import nuxtApp from './nuxt-server';
+import { webhook } from './config';
 
 // // Start writing Firebase Functions
 // // https://firebase.google.com/docs/functions/typescript
@@ -15,10 +16,7 @@ export const contact = functions.https.onRequest(async (req, res) => {
     return;
   }
   await axios
-    .post(
-      'https://hooks.slack.com/services/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',
-      req.body
-    )
+    .post(functions.config().slack.webhook || webhook, req.body)
     .then(() => {
       res.status(200).send('OK');
     })

@@ -45,9 +45,7 @@ export default Vue.extend({
         worksData.map(async row => {
           row.cells = await Promise.all(
             row.cells.map(async el => {
-              el.ogp = await context.app.$ogpGetter(
-                "https://aidemy.net/courses/4100"
-              );
+              el.ogp = await context.app.$ogpGetter(el.link);
               return el;
             })
           );
