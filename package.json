@@ -4,11 +4,12 @@
   "private": true,
   "description": "Swordroot's LP project",
   "scripts": {
-    "dev": "nuxt",
-    "prd": "nuxt build && nuxt start",
-    "build": "nuxt build",
-    "deploy:hosting": "firebase deploy --only hosting --project swordroot-lp",
+    "dev:nuxt": "nuxt",
+    "prd:nuxt": "npm run build:nuxt && firebase serve --only hosting,functions",
+    "build:nuxt": "nuxt build && cp -rf ./functions/dist/dist/client ./public && mv ./public/client ./public/_nuxt",
+    "deploy:hosting": "npm run build:nuxt && firebase deploy --only hosting --project swordroot-lp",
     "deploy:functions": "cd functions && npm run build && firebase deploy --only functions --project swordroot-lp",
+    "deploy:all": "npm run deploy:functions && npm run deploy:hosting",
     "lint": "eslint --ext .ts,.js,.vue --ignore-path .gitignore .",
     "test": "jest"
   },

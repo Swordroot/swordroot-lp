@@ -32,7 +32,9 @@ const config: NuxtConfiguration = {
       mode: 'server'
     }
   ],
-  axios: {}
+  axios: {},
+  buildDir: './functions/dist',
+  publicPath: '/'
 };
 
 export default config;
