@@ -10,7 +10,7 @@ jobs:
       - checkout
       - run: npm install
       - run: cd functions && npm install && cd ../
-      - run: npm run build:nuxt
+      - run: npm run build:nuxt:ci
       - run: npm run build:functions
   test:
     docker:
@@ -36,7 +36,7 @@ jobs:
             cd functions
             npm install
             cd ../
-            npm run build:nuxt
+            npm run build:nuxt:ci
             npm run build:functions
             npm run deploy:hosting -- --token $FIREBASE_TOKEN
             npm run deploy:functions -- --token $FIREBASE_TOKEN
