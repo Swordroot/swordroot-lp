@@ -36,9 +36,7 @@ jobs:
             cd functions
             npm install
             cd ../
-            npm run build:nuxt:ci
-            npm run build:functions
-            npm run deploy:hosting -- --token $FIREBASE_TOKEN
+            npm run deploy:hosting:ci -- --token $FIREBASE_TOKEN
             npm run deploy:functions -- --token $FIREBASE_TOKEN
 
 workflows:
