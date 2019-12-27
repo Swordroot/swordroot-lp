@@ -36,6 +36,13 @@ export default Vue.extend({
             link: "https://aidemy.net/courses/4100",
             description: "SQLの基礎的な内容を扱っている講座です。",
             ogp: {}
+          },
+          {
+            id: uuid.v4(),
+            title: "ogp-getter",
+            link: "https://www.npmjs.com/package/ogp-getter",
+            description: "OGP情報を取得するパッケージです",
+            ogp: {}
           }
         ]
       }
